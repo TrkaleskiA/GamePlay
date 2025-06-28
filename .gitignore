@@ -1,11 +1,6 @@
 # Node.js dependencies (common for both backend and frontend)
 node_modules/
 
-# Environment variable files
-.env
-.env.local
-.env.*.local
-
 # Build output folders
 dist/
 build/
