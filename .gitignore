@@ -1,0 +1,49 @@
+# Node.js dependencies (common for both backend and frontend)
+node_modules/
+
+# Environment variable files
+.env
+.env.local
+.env.*.local
+
+# Build output folders
+dist/
+build/
+out/
+public/build/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE and editor folders/files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Coverage reports
+coverage/
+
+# Frontend specific
+# If using React scripts or Next.js, add build folders
+/build/
+/.next/
+
+# Backend specific
+# If you have any temporary files or logs created by your backend
+logs/
+*.log
+
+# Miscellaneous
+*.bak
+*.tmp
