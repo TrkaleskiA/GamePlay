@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+  namespace: gameplay-namespace
+data:
+  MONGO_URL: "mongodb://root:mypassword@mongo-service.gameplay-namespace.svc.cluster.local:27017/gameplaydb?authSource=admin"

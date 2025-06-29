@@ -14,10 +14,13 @@ spec:
         app: gameplay-backend
     spec:
       containers:
-        - name: backend
-          image: deadlinet/gameplay-backend:latest
-          ports:
-            - containerPort: 5000
-          env:
-            - name: MONGO_URL
-              value: mongodb://mongo-service.gameplay-namespace.svc.cluster.local:27017/gameplaydb
+      - name: backend
+        image: deadlinet/gameplay-backend:latest
+        ports:
+        - containerPort: 5000
+        env:
+        - name: MONGO_URL
+          valueFrom:
+            configMapKeyRef:
+              name: backend-config
+              key: MONGO_URL
