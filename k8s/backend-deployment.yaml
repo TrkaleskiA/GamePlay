@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gameplay-backend
+  namespace: gameplay-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gameplay-backend
+  template:
+    metadata:
+      labels:
+        app: gameplay-backend
+    spec:
+      containers:
+        - name: backend
+          image: deadlinet/gameplay-backend:latest
+          ports:
+            - containerPort: 5000
+          env:
+            - name: MONGO_URL
+              value: mongodb://mongo-service.gameplay-namespace.svc.cluster.local:27017/gameplaydb

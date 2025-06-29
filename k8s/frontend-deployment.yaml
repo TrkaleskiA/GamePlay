@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gameplay-frontend
+  namespace: gameplay-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gameplay-frontend
+  template:
+    metadata:
+      labels:
+        app: gameplay-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: deadlinet/gameplay-frontend:latest
+          ports:
+            - containerPort: 80

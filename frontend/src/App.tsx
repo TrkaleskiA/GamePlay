@@ -15,7 +15,7 @@ function App() {
 
   const fetchGames = async () => {
     try {
-      const res = await axios.get<Game[]>("http://localhost:5000/api");
+      const res = await axios.get<Game[]>("/api");
       setGames(res.data);
     } catch (error) {
       console.error("Error fetching games", error);
@@ -30,7 +30,7 @@ function App() {
     if (!newGame.name.trim() || !newGame.size.trim()) return;
 
     try {
-      await axios.post("http://localhost:5000/api", newGame);
+      await axios.post("/api", newGame);
       setNewGame({ name: "", size: "", played: false });
       fetchGames();
     } catch (error) {
@@ -40,7 +40,7 @@ function App() {
 
   const deleteGame = async (id: string) => {
     try {
-      await axios.delete(`http://localhost:5000/api/${id}`);
+      await axios.delete(`/api/${id}`);
       fetchGames();
     } catch (error) {
       console.error("Error deleting game", error);
@@ -49,7 +49,7 @@ function App() {
 
   const markAsPlayed = async (id: string) => {
     try {
-      await axios.patch(`http://localhost:5000/api/${id}/play`);
+      await axios.patch(`/api/${id}/play`);
       fetchGames();
     } catch (error) {
       console.error("Error marking as played", error);
